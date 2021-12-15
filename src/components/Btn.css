@@ -1,0 +1,16 @@
+
+button-container {
+
+
+}
+
+.hero-start-btn {
+color: white; 
+cursor: pointer;
+background:#4D5B9E;
+padding: 3rem 9rem;
+font-size: 2rem;
+border-radius:20px;
+font-weight: bold;
+
+}
