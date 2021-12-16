@@ -1,0 +1,27 @@
+.blop-container-top--big {
+  width: 20vw;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.blop-container-bottom--big {
+  width: 20vw;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.blop-container-top--small {
+  width: 10vw;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.blop-container-bottom--small {
+  width: 10vw;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}

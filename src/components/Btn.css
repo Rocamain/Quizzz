@@ -1,16 +1,35 @@
-
 button-container {
-
-
 }
 
 .hero-start-btn {
-color: white; 
-cursor: pointer;
-background:#4D5B9E;
-padding: 3rem 9rem;
-font-size: 2rem;
-border-radius:20px;
-font-weight: bold;
+  color: white;
+  cursor: pointer;
+  background: #4d5b9e;
+  padding: 3rem 9rem;
+  font-size: 2rem;
+  border-radius: 20px;
+  font-weight: bold;
+}
 
+.answer-btn {
+  cursor: pointer;
+  background: white;
+  color: #4d5b9e;
+  padding: 1rem 3rem;
+  /* margin-bottom: 2rem; */
+  margin-right: 1.5rem;
+  font-size: 1rem;
+  border: 1px solid #4d5b9e;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.answer-btn:hover {
+  background: #d6dbf5;
+  boder: 1px solif #d6dbf5;
+}
+
+.answer-btn-selected {
+  background: #d6dbf5;
+  boder: 1px solif #d6dbf5;
 }

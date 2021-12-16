@@ -1,15 +1,12 @@
-.start{
-  
-width: 100vw;
-height: 100vh;
-background-color: #F5F7FB;
-
-
+.start {
+  width: 100vw;
+  height: 100vh;
+  background-color: #f5f7fb;
 }
-.start-text{
-position: relative;
-top:30vh;
-text-align:center;
+.start-text {
+  position: relative;
+  top: 30vh;
+  text-align: center;
 }
 
 .start-text p {
@@ -19,19 +16,4 @@ text-align:center;
 .start-text h1 {
   margin-bottom: 2rem;
   font-size: 5rem;
-  
 }
-.blop-container-top {
-  width: 20vw;
-  position: absolute;
-  top:0;
-  right: 0; 
-}
-
-.blop-container-bottom {
-  width: 20vw;
-  position: absolute;
-  bottom:0;
-  left: 0;  
-}
-
