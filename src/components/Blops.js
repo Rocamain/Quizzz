@@ -5,7 +5,7 @@ export default function Blops(props) {
 
   return (
     <div className="blops">
-      <div className={`blop-container-top--${classType}`}>
+      <div className={`blop-container-top--big`}>
         <svg
           className="blop-top"
           width="100%"
