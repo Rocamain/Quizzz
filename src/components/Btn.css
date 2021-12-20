@@ -1,9 +1,10 @@
-button-container {
+.btn-container {
+  margin-bottom: 1rem;
 }
 
 .hero-start-btn {
-  color: white;
   cursor: pointer;
+  color: white;
   background: #4d5b9e;
   padding: 3rem 9rem;
   font-size: 2rem;
@@ -15,8 +16,7 @@ button-container {
   cursor: pointer;
   background: white;
   color: #4d5b9e;
-  padding: 1rem 3rem;
-  /* margin-bottom: 2rem; */
+  padding: 0.5rem 2rem;
   margin-right: 1.5rem;
   font-size: 1rem;
   border: 1px solid #4d5b9e;
@@ -29,7 +29,37 @@ button-container {
   boder: 1px solif #d6dbf5;
 }
 
-.answer-btn-selected {
-  background: #d6dbf5;
-  boder: 1px solif #d6dbf5;
+.answer-btn-incorrect {
+  background: white;
+  color: #293264;
+  padding: 0.5rem 2rem;
+  margin-right: 1.5rem;
+  font-size: 1rem;
+  border: 1px solid #293264;
+  border-radius: 8px;
+  font-weight: bold;
+  opacity: 0.5;
+}
+
+.answer-btn-incorrect-selected {
+  background: #f8bcbc;
+  color: #293264;
+  padding: 0.5rem 2rem;
+  margin-right: 1.5rem;
+  font-size: 1rem;
+  border: 1px solid #f8bcbc;
+  border-radius: 8px;
+  font-weight: bold;
+  opacity: 0.5;
+}
+
+.answer-btn-correct {
+  background: #94d7a2;
+  color: #4d5b9e;
+  padding: 0.5rem 2rem;
+  margin-right: 1.5rem;
+  font-size: 1rem;
+  border: 1px solid #4d5b9e;
+  border-radius: 8px;
+  font-weight: bold;
 }

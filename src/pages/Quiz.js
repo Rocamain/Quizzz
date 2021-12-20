@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
-import { getQuestions } from '../services/trivia';
-import Blops from '../components/Blops';
-import './Quiz.css';
-import QuestionCard from '../components/Question.js';
 
-export default function Quiz(props) {
+import './Quiz.css';
+import Blops from '../components/Blops';
+import QuestionCard from '../components/Question.js';
+import { getQuestions } from '../services/trivia';
+
+export default function Quiz() {
   const [questions, setQuestions] = useState();
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isLoaded, setIsLoaded] = useState();
 
   useEffect(() => {
     getQuestions(setQuestions, setIsLoaded);
@@ -14,29 +15,38 @@ export default function Quiz(props) {
     return () => {};
   }, []);
 
-  const deployQuestion = () => {
+  const deployQuestion = (questions) => {
     return questions.map((question) => (
-      <QuestionCard data={question} key={question} action={selector} />
+      <QuestionCard
+        data={question}
+        key={question.question.questionId}
+        action={selector}
+      />
     ));
   };
 
-  function selector(event) {
-    console.log('click', event.target);
+  function selector(questionIdReplied, answerId) {
+    setQuestions((oldQuestions) =>
+      oldQuestions.map(({ question, answerSelected, ...rest }) => {
+        if (question.questionId === questionIdReplied) {
+          return {
+            question,
+            answerSelected: answerId,
+            ...rest,
+          };
+        } else {
+          return { answerSelected, question, ...rest };
+        }
+      })
+    );
   }
-
-  return isLoaded ? (
-    <div className="quiz">
-      {/* <h1>Quiz Questions</h1>
-      <Btn action={props.start} type="hero-start-btn" /> */}
-
-      <div className="quiz-container">{deployQuestion()}</div>
-
+  console.log('Quiz render');
+  return (
+    <div className="quiz-section">
+      <div className="quiz-container">
+        {isLoaded && deployQuestion(questions)}
+      </div>
       <Blops type="small" />
-    </div>
-  ) : (
-    <div>
-      <Blops type="small" />
-      <h2>Loading ...</h2>
     </div>
   );
 }

@@ -3,13 +3,41 @@ import './Question.css';
 import Btn from './Btn.js';
 
 export default function QuestionCard({ data, action }) {
-  function organizer({ incorrect_answers, correct_answer }) {
-    const allAnswers = [...incorrect_answers, correct_answer];
+  const question = data.question.question;
+
+  function triggerStyles(answer) {
+    if (
+      answer.id !== data.correctAnswer.id &&
+      answer.id === data.answerSelected
+    ) {
+      return 'answer-btn-incorrect-selected';
+    }
+    if (answer.id === data.correctAnswer.id) {
+      return 'answer-btn-correct';
+    }
+
+    return 'answer-btn-incorrect';
+  }
+
+  function deployButtons(data) {
+    const allAnswers = [...data.answers];
 
     return (
       <div className="answers-container">
         {allAnswers.map((answer) => (
-          <Btn value={answer} type="answer-btn" key={answer} action={action} />
+          <Btn
+            value={answer.answer}
+            key={answer.id}
+            id={answer.id}
+            type={data.answerSelected ? triggerStyles(answer) : 'answer-btn'}
+            action={() =>
+              action(
+                data.question.questionId,
+                answer.id,
+                data.question.question
+              )
+            }
+          />
         ))}
       </div>
     );
@@ -17,8 +45,16 @@ export default function QuestionCard({ data, action }) {
 
   return (
     <div className="question-card">
-      <h2 className="question">{data.question}</h2>
-      {organizer(data)}
+      <h2 className="question">{question}</h2>
+      {deployButtons(data)}
+      <hr
+        style={{
+          backgroundColor: 'grey',
+          height: 1,
+          marginBottom: '1rem',
+          opacity: 0.5,
+        }}
+      />
     </div>
   );
 }
