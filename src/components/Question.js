@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Question.css';
 import Btn from './Btn.js';
 
-export default function QuestionCard({ data, action }) {
+export default function QuestionCard({ data, action, count }) {
   const [isDisabled, setIsDisabled] = useState(false);
 
   const question = data.question.question;
@@ -13,13 +13,13 @@ export default function QuestionCard({ data, action }) {
       answer.id !== data.correctAnswer.id &&
       answer.id === data.answerSelected
     ) {
-      return 'answer-btn-incorrect-selected';
+      return 'answer-btn incorrect';
     }
     if (answer.id === data.correctAnswer.id) {
-      return 'answer-btn-correct';
+      return 'answer-btn correct';
     }
 
-    return 'answer-btn-incorrect';
+    return 'answer-btn other';
   };
 
   const handleDisable = (questionId, answerId) => {
@@ -28,6 +28,8 @@ export default function QuestionCard({ data, action }) {
       setIsDisabled((prevState) => !prevState);
       // we use closure passing the function to let the quiz component the answer selected
       action(questionId, answerId);
+
+      count(answerId);
     }
   };
 
@@ -51,11 +53,12 @@ export default function QuestionCard({ data, action }) {
 
   return (
     <div className="question-card">
-      <h2 className="question">{question}</h2>
+      <h3 className="question">{question}</h3>
       {deployButtons(data)}
       <hr
         style={{
           backgroundColor: 'grey',
+          marginTop: '1rem',
           height: 1,
           marginBottom: '1rem',
           opacity: 0.5,

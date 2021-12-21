@@ -1,6 +1,26 @@
-.quiz-container {
+.quiz-section {
   position: relative;
+  height: 100%;
+  padding-bottom: 5vh;
+}
+
+.quiz-container {
+  width: 80vw;
+
+  margin: 0 auto;
+  margin-top: 5%;
+  margin-bottom: 3%;
+}
+
+.quiz-results {
+  font-size: 2rem;
+  font-weight: bold;
+  padding-right: 3rem;
+}
+.quiz-results-container {
   width: 80vw;
   margin: 0 auto;
-  margin-top: 7vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
