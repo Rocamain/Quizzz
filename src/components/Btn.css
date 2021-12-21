@@ -1,5 +1,5 @@
 .btn-container {
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; */
 }
 
 .hero-start-btn {
@@ -10,6 +10,19 @@
   font-size: 2rem;
   border-radius: 20px;
   font-weight: bold;
+}
+.play-again-btn {
+  cursor: pointer;
+  color: white;
+  background: #4d5b9e;
+  padding: 2rem 3rem;
+  font-size: 1.5rem;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.hidden {
+  visibility: hidden;
 }
 
 .answer-btn {
@@ -29,37 +42,21 @@
   boder: 1px solif #d6dbf5;
 }
 
-.answer-btn-incorrect {
-  background: white;
-  color: #293264;
-  padding: 0.5rem 2rem;
-  margin-right: 1.5rem;
-  font-size: 1rem;
-  border: 1px solid #293264;
-  border-radius: 8px;
-  font-weight: bold;
-  opacity: 0.5;
-}
-
-.answer-btn-incorrect-selected {
-  background: #f8bcbc;
-  color: #293264;
-  padding: 0.5rem 2rem;
-  margin-right: 1.5rem;
-  font-size: 1rem;
-  border: 1px solid #f8bcbc;
-  border-radius: 8px;
-  font-weight: bold;
-  opacity: 0.5;
-}
-
-.answer-btn-correct {
+.correct {
   background: #94d7a2;
   color: #4d5b9e;
-  padding: 0.5rem 2rem;
-  margin-right: 1.5rem;
-  font-size: 1rem;
-  border: 1px solid #4d5b9e;
-  border-radius: 8px;
-  font-weight: bold;
+  border: 1px solid #94d7a2;
+}
+
+.incorrect {
+  background: #f8bcbc;
+  border: 1px solid #293264;
+  opacity: 0.7;
+}
+
+.other {
+  background: white;
+  color: #293264;
+  border: 1px solid black;
+  opacity: 0.5;
 }
