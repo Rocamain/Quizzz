@@ -28,7 +28,7 @@ export const formatter = (data) => {
     ];
 
     return {
-      question: { question, questionId },
+      question: { question, id: questionId },
       correctAnswer,
       answerSelected: null,
       answers: shuffle(answersArray),

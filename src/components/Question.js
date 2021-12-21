@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Question.css';
 import Btn from './Btn.js';
 
 export default function QuestionCard({ data, action }) {
+  const [isDisabled, setIsDisabled] = useState(false);
+
   const question = data.question.question;
 
-  function triggerStyles(answer) {
+  // once the answer is selected return new styles to the buttons
+  const triggerStyles = (answer) => {
     if (
       answer.id !== data.correctAnswer.id &&
       answer.id === data.answerSelected
@@ -17,7 +20,16 @@ export default function QuestionCard({ data, action }) {
     }
 
     return 'answer-btn-incorrect';
-  }
+  };
+
+  const handleDisable = (questionId, answerId) => {
+    if (!isDisabled) {
+      // we set state to disable to true to avoid changing the answer
+      setIsDisabled((prevState) => !prevState);
+      // we use closure passing the function to let the quiz component the answer selected
+      action(questionId, answerId);
+    }
+  };
 
   function deployButtons(data) {
     const allAnswers = [...data.answers];
@@ -30,13 +42,7 @@ export default function QuestionCard({ data, action }) {
             key={answer.id}
             id={answer.id}
             type={data.answerSelected ? triggerStyles(answer) : 'answer-btn'}
-            action={() =>
-              action(
-                data.question.questionId,
-                answer.id,
-                data.question.question
-              )
-            }
+            action={() => handleDisable(data.question.id, answer.id)}
           />
         ))}
       </div>

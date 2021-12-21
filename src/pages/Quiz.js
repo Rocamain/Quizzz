@@ -19,16 +19,16 @@ export default function Quiz() {
     return questions.map((question) => (
       <QuestionCard
         data={question}
-        key={question.question.questionId}
-        action={selector}
+        key={question.question.id}
+        action={handleSelector}
       />
     ));
   };
 
-  function selector(questionIdReplied, answerId) {
+  const handleSelector = (questionIdReplied, answerId) => {
     setQuestions((oldQuestions) =>
       oldQuestions.map(({ question, answerSelected, ...rest }) => {
-        if (question.questionId === questionIdReplied) {
+        if (question.id === questionIdReplied) {
           return {
             question,
             answerSelected: answerId,
@@ -39,7 +39,7 @@ export default function Quiz() {
         }
       })
     );
-  }
+  };
   console.log('Quiz render');
   return (
     <div className="quiz-section">
